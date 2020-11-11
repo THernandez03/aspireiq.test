@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmailInput/> should render a EmailInput 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="labels"
+    />
+    <input
+      type="email"
+      value=""
+    />
+  </div>
+</div>
+`;
