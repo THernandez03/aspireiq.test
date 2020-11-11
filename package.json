@@ -10,6 +10,7 @@
   "dependencies": {
     "babel-preset-thernandez": "^0.0.19",
     "classnames": "^2.2.6",
+    "eslint-config-thernandez": "^0.0.18",
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
