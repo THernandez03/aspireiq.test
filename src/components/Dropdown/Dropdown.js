@@ -7,11 +7,6 @@ export const Dropdown = ({ term, hiddenValues, onItemClick = () => {} }) => {
   const [filteredValues, setFilteredValues] = useState([]);
 
   const fetchEmails = async (term) => {
-    if (!term) {
-      setFilteredValues([]);
-      return;
-    }
-
     const response = await fetch(`/api/${term}`);
     const { data } = await response.json();
     setFilteredValues(data);
@@ -20,6 +15,10 @@ export const Dropdown = ({ term, hiddenValues, onItemClick = () => {} }) => {
   const debouncedFetch = useCallback(debounce(fetchEmails, 500), []);
 
   useEffect(() => {
+    if (!term) {
+      return setFilteredValues([]);
+    }
+
     debouncedFetch(term);
   }, [term]);
 
