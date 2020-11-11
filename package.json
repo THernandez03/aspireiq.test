@@ -5,15 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest"
   },
   "dependencies": {
     "babel-preset-thernandez": "^0.0.19",
     "classnames": "^2.2.6",
-    "eslint-config-thernandez": "^0.0.18",
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sass": "^1.29.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.1.1",
+    "babel-jest": "^26.6.3",
+    "eslint-config-thernandez": "^0.0.18",
+    "jest": "^26.6.3",
+    "jest-css-modules-transform": "^4.0.2",
+    "node-sass": "^5.0.0"
   }
 }

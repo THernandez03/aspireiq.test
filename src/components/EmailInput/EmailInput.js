@@ -5,7 +5,6 @@ import Label from "../Label";
 import Dropdown from "../Dropdown";
 import styles from "./EmailInput.module.scss";
 
-
 const Reducer = (state, action) => {
   switch (action.type) {
     case TYPE: {
