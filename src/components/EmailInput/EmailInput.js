@@ -1,30 +1,33 @@
 import React, { useReducer } from "react";
 
+import { TYPE, ADD_EMAIL, REMOVE_EMAIL } from '../../constants/actionTypes';
 import Label from "../Label";
 import styles from "./EmailInput.module.scss";
 
-const ADD_EMAIL = "ADD_EMAIL";
-const REMOVE_EMAIL = "REMOVE_EMAIL";
-const SHOW_DROPDOWN = "SHOW_DROPDOWN";
-const HIDE_DROPDOWN = "HIDE_DROPDOWN";
 
 const Reducer = (state, action) => {
   switch (action.type) {
+    case TYPE: {
+      return { ...state, input: action.payload };
+    }
     case ADD_EMAIL: {
       const { emails } = state;
       emails.add(action.payload);
-      return { emails };
+      return { input: '', emails };
     }
     case REMOVE_EMAIL: {
       const { emails } = state;
       emails.delete(action.payload);
-      return { emails };
+      return { ...state, emails };
     }
   }
 };
 
 export const EmailInput = ({ placeholder }) => {
-  const [state, dispatch] = useReducer(Reducer, { emails: new Set() });
+  const [state, dispatch] = useReducer(Reducer, {
+    input: "",
+    emails: new Set()
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -41,9 +44,14 @@ export const EmailInput = ({ placeholder }) => {
           </Label>
         ))}
       </div>
+
       <input
         type="email"
+        value={state.input}
         placeholder={placeholder}
+        onChange={(event) => {
+          dispatch({ type: TYPE, payload: event.target.value });
+        }}
         onKeyDown={(event) => {
           const { key, target } = event;
           const { value } = target;
@@ -54,7 +62,6 @@ export const EmailInput = ({ placeholder }) => {
 
           if (key === "Enter" || key === "Tab") {
             dispatch({ type: ADD_EMAIL, payload: value });
-            target.value = "";
           }
         }}
       ></input>
