@@ -5,14 +5,14 @@ import { isEmail } from "../../validations";
 import { Warning, Close } from "../Icons";
 import styles from "./Label.module.scss";
 
-export const Label = ({ children, onIconClick = () => {} }) => {
+export const Label = ({ children, className, onIconClick = () => {} }) => {
   const isValid = isEmail(children);
 
   if (!children) return null;
 
   return (
     <div
-      className={classnames(styles.wrapper, {
+      className={classnames(styles.wrapper, className, {
         [styles.invalid]: !isValid,
       })}
     >
