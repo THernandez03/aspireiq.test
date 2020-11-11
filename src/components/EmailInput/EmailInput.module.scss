@@ -1,0 +1,25 @@
+.wrapper{
+  width: max-content;
+  padding: 5px;
+  box-shadow: 1px 1px 10px 0px #d7d7d7;
+  border-radius: 5px;
+  display: flex;
+
+  > .labels{
+    display: flex;
+
+    > .label{
+      margin: 0 1px;
+    }
+  }
+
+  > input{
+    border: 0;
+    padding: 10px;
+    width: 100%;
+
+    &:focus{
+      outline: 0;
+    }
+  }
+}
