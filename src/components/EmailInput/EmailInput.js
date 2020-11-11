@@ -60,7 +60,9 @@ export const EmailInput = ({ placeholder }) => {
 
           event.stopPropagation();
 
-          if (!value || state.emails.has(value)) return;
+          if (!value || state.emails.has(value)){
+            dispatch({ type: TYPE });
+          };
 
           if (key === "Enter" || key === "Tab") {
             dispatch({ type: ADD_EMAIL, payload: value });
