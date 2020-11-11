@@ -1,13 +1,9 @@
-import { Label } from "../src/components";
+import { Label, EmailInput } from "../src/components";
 
 export default function Home() {
   return (
-    <>
-      <Label>TEST</Label>
-      <Label>TEST@dasda.com</Label>
-      <Label>TEST</Label>
-      <Label>TEST</Label>
-      <Label></Label>
-    </>
+    <section>
+      <EmailInput placeholder="Enter recipients..." />
+    </section>
   );
 }
