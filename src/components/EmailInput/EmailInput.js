@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 
 import { TYPE, ADD_EMAIL, REMOVE_EMAIL } from '../../constants/actionTypes';
 import Label from "../Label";
+import Dropdown from "../Dropdown";
 import styles from "./EmailInput.module.scss";
 
 
@@ -64,7 +65,15 @@ export const EmailInput = ({ placeholder }) => {
             dispatch({ type: ADD_EMAIL, payload: value });
           }
         }}
-      ></input>
+      />
+
+      <Dropdown
+        term={state.input}
+        hiddenValues={state.emails}
+        onItemClick={(event) => {
+          dispatch({ type: ADD_EMAIL, payload: event.target.innerText });
+        }}
+      />
     </div>
   );
 };

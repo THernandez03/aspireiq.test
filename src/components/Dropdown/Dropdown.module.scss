@@ -1,0 +1,19 @@
+.wrapper{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 55px;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 10px 0px #d7d7d7;
+  overflow: auto;
+  height: auto;
+  max-height: 250px;
+
+  > .item{
+    padding: 10px;
+
+    &:hover{
+      background: #EFF5F9;
+    }
+  }
+}
