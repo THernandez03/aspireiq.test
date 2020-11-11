@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useRef } from "react";
 
 import { TYPE, ADD_EMAIL, REMOVE_EMAIL } from '../../constants/actionTypes';
 import Label from "../Label";
@@ -24,6 +24,7 @@ const Reducer = (state, action) => {
 };
 
 export const EmailInput = ({ placeholder }) => {
+  const input = useRef();
   const [state, dispatch] = useReducer(Reducer, {
     input: "",
     emails: new Set()
@@ -47,6 +48,7 @@ export const EmailInput = ({ placeholder }) => {
 
       <input
         type="email"
+        ref={input}
         value={state.input}
         placeholder={placeholder}
         onChange={(event) => {
@@ -71,6 +73,7 @@ export const EmailInput = ({ placeholder }) => {
         hiddenValues={state.emails}
         onItemClick={(event) => {
           dispatch({ type: ADD_EMAIL, payload: event.target.innerText });
+          input.current.focus();
         }}
       />
     </div>
