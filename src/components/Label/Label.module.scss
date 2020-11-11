@@ -1,0 +1,36 @@
+.wrapper{
+  display: flex;
+  background: #EDEDED;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 2px;
+
+  &.invalid{
+    background: #F28A94;
+    font-size: 2px;
+
+    > .icon > svg{
+      fill: #F1515F;
+      color: #FFFFFF
+    }
+  }
+
+  > .text{
+    font-weight: bolder;
+    font-size: 2px;
+  }
+
+  > .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+
+    > svg{
+      width: 16px;
+      height: 16px;
+      fill: #000000;
+    }
+  }
+}
