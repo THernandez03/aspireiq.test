@@ -1,18 +1,29 @@
 .wrapper{
   display: flex;
-  background: #EDEDED;
   width: fit-content;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 2px;
 
+  &:hover{
+    background: #EDEDED;
+
+    .icon{
+      display: flex;
+    }
+  }
+
   &.invalid{
     background: #F28A94;
     font-size: 2px;
 
-    > .icon > svg{
-      fill: #F1515F;
-      color: #FFFFFF
+    > .icon {
+      display: flex;
+
+      > svg{
+        fill: #F1515F;
+        color: #FFFFFF
+      }
     }
   }
 
@@ -22,7 +33,7 @@
   }
 
   > .icon{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     margin-left: 5px;
